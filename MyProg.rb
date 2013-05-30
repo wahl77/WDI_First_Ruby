@@ -67,42 +67,44 @@ def name_tag
 end
 
 def calculator
-	option = prompt_number("What do you want to do?\n\t1) Add\n\t2) Sub\n\t3) Mult\n\t4) Div\n\t5) Advanced\n\t6) Quit")
-	if option < 5
-		num1 = prompt_number("What is your first number?")
-		num2 = prompt_number( "What is your second number?")
-		case option 
-			when 1
-				puts "Sum is #{num1 + num2}"
-			when 2 
-				puts "Sub #{num1 - num2}"
-			when 3 
-				puts "Mult #{num1 * num2}"
-			when 4 
-				puts "Div #{num1 / num2}"
-			else
-				puts "Some error"
-		end
-	elsif option == 5 
-		puts "Welcome to Avanced Calc"
-		option = prompt_number("What do you want to do?\n\t1) Exp\n\t2)Square")
-		case option
-		when 1
+	option = 1
+	while option != 6
+		option = prompt_number("What do you want to do?\n\t1) Add\n\t2) Sub\n\t3) Mult\n\t4) Div\n\t5) Advanced\n\t6) Quit")
+		if option < 5
 			num1 = prompt_number("What is your first number?")
 			num2 = prompt_number( "What is your second number?")
-			puts "Exponent is #{num1 ** num2}"
-		when 2
-			num1 = prompt_number("What is number do you want to square?")
-			puts "Square is #{num1 ** 0.5}"
-		else
-			puts "Some error occured"
+			case option 
+				when 1
+					puts "Sum is #{num1 + num2}"
+				when 2 
+					puts "Sub #{num1 - num2}"
+				when 3 
+					puts "Mult #{num1 * num2}"
+				when 4 
+					puts "Div #{num1 / num2}"
+				else
+					puts "Some error"
+			end
+		elsif option == 5 
+			puts "Welcome to Avanced Calc"
+			option = prompt_number("What do you want to do?\n\t1) Exp\n\t2)Square")
+			case option
+			when 1
+				num1 = prompt_number("What is your first number?")
+				num2 = prompt_number( "What is your second number?")
+				puts "Exponent is #{num1 ** num2}"
+			when 2
+				num1 = prompt_number("What is number do you want to square?")
+				puts "Square is #{num1 ** 0.5}"
+			else
+				puts "Some error occured"
+			end
+		elsif option == 6
+			break
+		else 
+			puts "Please enter a valid number"
 		end
-	elsif option == 6
-		return
-	else 
-		puts "Please enter a valid number"
 	end
-	calculator
 end
 
 
