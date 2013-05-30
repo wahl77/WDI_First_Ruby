@@ -1,6 +1,7 @@
 
 def is_num(a_string)
 	regex = /[0-9]+/
+	regex = /^([-|+]?[0-9]+)?(\.[0-9]*)?/
 	if regex.match(a_string) != nil && regex.match(a_string)[0] == a_string
 		return true
 	else
@@ -16,7 +17,7 @@ def prompt_number(string)
 		puts "You have entered an incorrect value"
 		return prompt_number(string)
 	end
-	return value.to_i
+	return value.to_f
 end
 
 
